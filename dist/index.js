@@ -11,7 +11,7 @@ const FLIPPER_URL = process.env.FLIPPER_CLOUD_URL || "https://www.flippercloud.i
 async function flipperRequest(path, method = "GET", body) {
     if (!FLIPPER_TOKEN) {
         return {
-            error: "FLIPPER_CLOUD_TOKEN environment variable is not set. Get your token from flippercloud.io/settings/tokens",
+            error: "FLIPPER_CLOUD_TOKEN environment variable is not set. Get your token from flippercloud.io (Settings > Credentials)",
             status: 401,
         };
     }
@@ -27,7 +27,7 @@ async function flipperRequest(path, method = "GET", body) {
         // Handle specific error cases
         if (res.status === 403) {
             return {
-                error: "Token is read-only. Use a read-write token to make changes. You can create one at flippercloud.io/settings/tokens",
+                error: "Token is read-only. Use a read-write token to make changes. You can create one at flippercloud.io (Settings > Credentials)",
                 status: 403,
             };
         }

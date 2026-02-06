@@ -102,7 +102,7 @@ async function flipperRequest<T>(
   if (!FLIPPER_TOKEN) {
     return {
       error:
-        "FLIPPER_CLOUD_TOKEN environment variable is not set. Get your token from flippercloud.io/settings/tokens",
+        "FLIPPER_CLOUD_TOKEN environment variable is not set. Get your token from flippercloud.io (Settings > Credentials)",
       status: 401,
     };
   }
@@ -121,7 +121,7 @@ async function flipperRequest<T>(
     if (res.status === 403) {
       return {
         error:
-          "Token is read-only. Use a read-write token to make changes. You can create one at flippercloud.io/settings/tokens",
+          "Token is read-only. Use a read-write token to make changes. You can create one at flippercloud.io (Settings > Credentials)",
         status: 403,
       };
     }
